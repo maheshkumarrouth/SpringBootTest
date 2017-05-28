@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!--
+		Created by the Middlegen Hibernate plugin 2.1
+
+		http://boss.bekk.no/boss/middlegen/ http://www.hibernate.org/
+	-->
+
+	<class
+		name="com.cultuzz.de.DistributorHasCltzProduct"
+		table="CA_Product_Data.distributor_has_cltzProduct">
+		<meta attribute="class-description" inherit="false">
+			@hibernate.class
+			table="cltzProductDB.distributor_has_cltzProduct"
+    </meta>
+
+		<composite-id>
+			<meta attribute="field-description" inherit="false">
+				@hibernate.id
+				generator-class="assigned"
+        	</meta>
+			<key-property name="distributorId" column="distributorId"
+				type="int" length="10">
+			<meta attribute="field-description">
+				@hibernate.property
+					column="distributorId"
+					length="10"
+            </meta>
+			</key-property>
+			<key-property name="cltzProductId" column="cltzProductId"
+				type="int" length="10">
+				<meta attribute="field-description">
+					@hibernate.property
+					column="cltzProductId"
+					length="10"
+            </meta>
+			</key-property>
+		</composite-id>
+        
+        <property name="status" type="java.lang.String" column="status">
+			<meta attribute="field-description">
+				@hibernate.property
+				column="status"
+        </meta>
+		</property>
+		
+
+		<!-- Associations -->
+		<!-- derived association(s) for compound key -->
+		<!-- end of derived association(s) -->
+
+
+	</class>
+</hibernate-mapping>
