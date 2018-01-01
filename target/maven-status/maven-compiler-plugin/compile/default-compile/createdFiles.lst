@@ -1,2 +1,6 @@
+com/cultuzz/de/UserRowMapper.class
+com/cultuzz/de/TokenData.class
 com/cultuzz/de/Test.class
+com/cultuzz/de/TestDAOService.class
 com/cultuzz/de/TestController.class
+com/cultuzz/de/DistributorHasCltzProduct.class

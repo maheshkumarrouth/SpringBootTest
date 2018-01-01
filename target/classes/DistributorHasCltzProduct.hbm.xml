@@ -12,7 +12,7 @@
 
 	<class
 		name="com.cultuzz.de.DistributorHasCltzProduct"
-		table="CA_Product_Data.distributor_has_cltzProduct">
+		table="distributor_has_cltzProduct">
 		<meta attribute="class-description" inherit="false">
 			@hibernate.class
 			table="cltzProductDB.distributor_has_cltzProduct"

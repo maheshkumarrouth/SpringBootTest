@@ -10,7 +10,7 @@ public class TestController {
 	private TestDAOService testDAOService;
 	@RequestMapping("/hello")
 	public String sayHai(){
-		System.out.println("testDAOService"+testDAOService.findAll());
+		System.out.println("testDAOService"+testDAOService.findAllData());
 		return "Hai";
 	}
 }
