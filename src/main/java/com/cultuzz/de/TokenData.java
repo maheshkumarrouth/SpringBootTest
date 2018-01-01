@@ -1,5 +1,6 @@
 package com.cultuzz.de;
 
+
 public class TokenData {
 	
 	private String cardData;
