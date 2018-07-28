@@ -3,6 +3,7 @@ de/atcs/model/ACSize.class
 de/atcs/jpa/atcs/ACSizeRepository.class
 de/atcs/validations/ValidationServiceImpl.class
 de/atcs/beans/AircraftData.class
+de/atcs/exception/AirTrafficControlException.class
 de/atcs/jpa/manager/utility/PriorityQueueManagerImpl.class
 de/atcs/validations/ValidationService.class
 de/atcs/jpa/manager/AirTrafficControlManager.class
@@ -21,5 +22,6 @@ de/atcs/jpa/managerImpl/atcs/AircraftXCheckInManagerImpl.class
 de/atcs/model/PriorityTypes.class
 de/atcs/jpa/manager/AirTrafficControlManagerImpl.class
 de/atcs/restservice/AirTrafficControl.class
+de/atcs/exception/GlobalExceptionHandler.class
 de/atcs/jpa/manager/atcs/PriorityTypesManager.class
 de/atcs/jpa/managerImpl/atcs/ACSizeManagerImpl.class

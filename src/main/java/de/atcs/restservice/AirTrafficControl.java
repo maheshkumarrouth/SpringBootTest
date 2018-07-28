@@ -17,7 +17,7 @@ public class AirTrafficControl {
 	
 	@RequestMapping(value="/boot")
 	public void bootTheSystem() {
-		
+		ValidationService.bootTheApplication();
 	}
 	
 	@RequestMapping(value="/enqueue")

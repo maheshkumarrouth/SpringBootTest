@@ -4,4 +4,6 @@ import de.atcs.beans.AircraftData;
 
 public interface AirTrafficControlManager {
 	AircraftData fetchAllAcDetails();
+	void bootTheApplication();
+	boolean isSystemBooted();
 }

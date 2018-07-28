@@ -4,4 +4,5 @@ import de.atcs.beans.AircraftData;
 
 public interface ValidationService {
 	AircraftData fetchAllAcDetails();
+	void bootTheApplication();
 }
