@@ -28,5 +28,18 @@ public class ACSizeManagerImpl implements ACSizeManager{
 		// TODO Auto-generated method stub
 		return acHashMap;
 	}
+	
+	@Override
+	public HashMap<String,Integer> getACSizKeyeMap() {
+		HashMap<String,Integer> acHashMap = new HashMap<>();
+		List<ACSize>  aCSizeList = acSizeRepository.findAll();
+		if(aCSizeList!=null&&!aCSizeList.isEmpty()) {
+			aCSizeList.forEach(acSize->{
+				acHashMap.put(acSize.getSize(),acSize.getId());
+			});
+		}
+		// TODO Auto-generated method stub
+		return acHashMap;
+	}
 
 }

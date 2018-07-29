@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import de.atcs.beans.Aircraft;
 import de.atcs.beans.AircraftData;
 import de.atcs.exception.AirTrafficControlException;
 import de.atcs.jpa.manager.AirTrafficControlManager;
@@ -26,6 +27,10 @@ public class ValidationServiceImpl implements ValidationService{
 	
 	public void bootTheApplication() {
 		airTrafficControlManager.bootTheApplication();
+	}
+	
+	public void enQueueAc(Aircraft aircraft) {
+		airTrafficControlManager.enQueueAc(aircraft);
 	}
 	
 }

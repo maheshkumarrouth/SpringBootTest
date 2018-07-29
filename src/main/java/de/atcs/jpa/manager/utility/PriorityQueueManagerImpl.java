@@ -18,11 +18,15 @@ import de.atcs.model.AircraftXCheckIn;
 @Component
 public class PriorityQueueManagerImpl implements PriorityQueueManager{
 	
-	private BlockingQueue<Aircraft> acQueue = null;
+	private BlockingQueue<AircraftXCheckIn> acQueue = null;
 	
 	private HashMap<Integer,String> priorityMap = null;
 	
+	private HashMap<String,Integer> priorityKeyMap = null;
+	
 	private HashMap<Integer,String> acSizeMap = null;
+	
+	private HashMap<String,Integer> acSizeKeyMap = null;
 	
 	@Autowired
 	private PriorityTypesManager priorityTypesManager;
@@ -35,6 +39,14 @@ public class PriorityQueueManagerImpl implements PriorityQueueManager{
 	
 	private boolean isSystemBooted;
 	
+	public BlockingQueue<AircraftXCheckIn> getAcQueue() {
+		return acQueue;
+	}
+
+	public void setAcQueue(BlockingQueue<AircraftXCheckIn> acQueue) {
+		this.acQueue = acQueue;
+	}
+
 	public boolean isSystemBooted() {
 		return isSystemBooted;
 	}
@@ -44,24 +56,25 @@ public class PriorityQueueManagerImpl implements PriorityQueueManager{
 	}
 
 	public void buildAcBasedOnProority(List<AircraftXCheckIn> aircraftXCheckIns) {
-		
-		if(aircraftXCheckIns!=null&&!aircraftXCheckIns.isEmpty()) {
-			aircraftXCheckIns.stream().forEach(aircraftXCheckIn->{
-				Aircraft aircraft = new Aircraft();
-				aircraft.setAcId(aircraftXCheckIn.getAcId());
-				aircraft.setSize(acSizeMap.get(aircraftXCheckIn.getSize()));
-				aircraft.setType(priorityMap.get(aircraftXCheckIn.getPriority()));
-				acQueue.add(aircraft);
-			});
-		}
+		System.out.println("aircraftXCheckIns"+aircraftXCheckIns.size());
+		acQueue.addAll(aircraftXCheckIns);
 	}
 	
 	public List<Aircraft> fetchAllAcDetails(){
 		List<Aircraft> aircrafts = new ArrayList<>();
-		acQueue.forEach(airCrapt->{
-			aircrafts.add(airCrapt);
+		acQueue.forEach(airCraptChekIn->{
+			System.out.println("airCraptChekIn"+airCraptChekIn.getAcId());
+			Aircraft aircraft = new Aircraft();
+			aircraft.setAcId(airCraptChekIn.getAcId());
+			aircraft.setSize(this.acSizeMap.get(airCraptChekIn.getSize()));
+			aircraft.setType(this.priorityMap.get(airCraptChekIn.getPriority()));
+			aircrafts.add(aircraft);
 		});
 		return aircrafts;
+	}
+	
+	public void enQueueAc(Aircraft aircraft) {
+		//acQueue.add(aircraft);
 	}
 	
 	public void bootTheApplication() {
@@ -75,5 +88,12 @@ public class PriorityQueueManagerImpl implements PriorityQueueManager{
 		}
 	}
 	
+	public Integer getPriorityTypeByName(String priority) {
+		return priorityKeyMap.get(priority);
+	}
+	
+	public Integer getSizeTypeByName(String name) {
+		return acSizeKeyMap.get(name);
+	}
 	
 }

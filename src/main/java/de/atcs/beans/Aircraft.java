@@ -10,6 +10,8 @@ import de.atcs.model.AircraftXCheckIn;
 @JsonInclude(Include.NON_EMPTY)
 public class Aircraft{
 	
+	private Integer id;
+	
 	private String acId;
 	
 	private String size;
@@ -17,6 +19,14 @@ public class Aircraft{
 	private String type;
 	
 	private Date checkIn;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getAcId() {
 		return acId;

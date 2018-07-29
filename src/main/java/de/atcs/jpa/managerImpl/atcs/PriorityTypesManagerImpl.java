@@ -26,4 +26,15 @@ public class PriorityTypesManagerImpl implements PriorityTypesManager{
 		}
 		return priorityMap;
 	}
+	
+	public HashMap<String,Integer> getPriorityMap(){
+		HashMap<String,Integer> priorityMap = new HashMap<>();
+		List<PriorityTypes> priorityTypes = priorityTypesRepository.findAll();
+		if(priorityTypes!=null&&!priorityTypes.isEmpty()) {
+			priorityTypes.forEach(priorityType->{
+				priorityMap.put(priorityType.getType(),priorityType.getId());
+			});
+		}
+		return priorityMap;
+	}
 }

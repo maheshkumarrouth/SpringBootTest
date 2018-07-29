@@ -4,4 +4,5 @@ import java.util.HashMap;
 
 public interface ACSizeManager {
 	HashMap<Integer,String> getACSizeMap();
+	HashMap<String,Integer> getACSizKeyeMap();
 }
