@@ -5,8 +5,6 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import de.atcs.model.AircraftXCheckIn;
-
 @JsonInclude(Include.NON_EMPTY)
 public class Aircraft{
 	
