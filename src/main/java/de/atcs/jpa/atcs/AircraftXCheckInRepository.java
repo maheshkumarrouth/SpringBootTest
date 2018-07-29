@@ -15,4 +15,7 @@ public interface AircraftXCheckInRepository extends JpaRepository<AircraftXCheck
 	
 	@Transactional(readOnly = false)
 	AircraftXCheckIn save(AircraftXCheckIn arAircraftXCheckIn);
+	
+	@Transactional(readOnly = false)
+	void delete(AircraftXCheckIn arAircraftXCheckIn);
 }

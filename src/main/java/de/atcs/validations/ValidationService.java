@@ -7,4 +7,6 @@ public interface ValidationService {
 	AircraftData fetchAllAcDetails();
 	void bootTheApplication();
 	void enQueueAc(Aircraft aircraft);
+	void dequeueAC();
+	AircraftData nextPlaneToBeDequeued();
 }

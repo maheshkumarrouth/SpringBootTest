@@ -8,4 +8,7 @@ public interface AirTrafficControlManager {
 	void bootTheApplication();
 	boolean isSystemBooted();
 	void enQueueAc(Aircraft aircraft);
+	void dequeueAC();
+	boolean isQueueEmpty();
+	 AircraftData nextPlaneToBeDequeued();
 }

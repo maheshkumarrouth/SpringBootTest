@@ -22,6 +22,7 @@ import de.atcs.validations.ValidationServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class ValidationServiceTest {
+	
 	@Mock
 	private AirTrafficControlManager airTrafficControlManager;
 

@@ -11,7 +11,7 @@ public class AircraftComparator implements Comparator<AircraftXCheckIn>{
 		if(priorityCmp!=0) return priorityCmp;
 		int sizeCmp = o1.getSize().compareTo(o2.getSize());
 		if(sizeCmp!=0) return sizeCmp;
-		int idComp = o1.getId().compareTo(o2.getId());
+		int idComp = o2.getId().compareTo(o1.getId());
 		return idComp;
 	}
 

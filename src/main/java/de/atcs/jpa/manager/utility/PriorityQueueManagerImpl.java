@@ -56,14 +56,12 @@ public class PriorityQueueManagerImpl implements PriorityQueueManager{
 	}
 
 	public void buildAcBasedOnProority(List<AircraftXCheckIn> aircraftXCheckIns) {
-		System.out.println("aircraftXCheckIns"+aircraftXCheckIns.size());
 		acQueue.addAll(aircraftXCheckIns);
 	}
 	
 	public List<Aircraft> fetchAllAcDetails(){
 		List<Aircraft> aircrafts = new ArrayList<>();
 		acQueue.forEach(airCraptChekIn->{
-			System.out.println("airCraptChekIn"+airCraptChekIn.getAcId());
 			Aircraft aircraft = new Aircraft();
 			aircraft.setAcId(airCraptChekIn.getAcId());
 			aircraft.setSize(this.acSizeMap.get(airCraptChekIn.getSize()));
@@ -73,16 +71,30 @@ public class PriorityQueueManagerImpl implements PriorityQueueManager{
 		return aircrafts;
 	}
 	
-	public void enQueueAc(Aircraft aircraft) {
-		//acQueue.add(aircraft);
+	public HashMap<Integer, String> getPriorityMap() {
+		return priorityMap;
 	}
-	
+
+	public void setPriorityMap(HashMap<Integer, String> priorityMap) {
+		this.priorityMap = priorityMap;
+	}
+
+	public HashMap<Integer, String> getAcSizeMap() {
+		return acSizeMap;
+	}
+
+	public void setAcSizeMap(HashMap<Integer, String> acSizeMap) {
+		this.acSizeMap = acSizeMap;
+	}
+
 	public void bootTheApplication() {
 		if(acQueue == null) {
 			isSystemBooted = true;
 			acQueue = new PriorityBlockingQueue<>(11,new AircraftComparator());
 			priorityMap = priorityTypesManager.getPriorityTypeMap();
+			priorityKeyMap = priorityTypesManager.getPriorityMap();
 			acSizeMap = acSizeManager.getACSizeMap();
+			acSizeKeyMap = acSizeManager.getACSizKeyeMap();
 			List<AircraftXCheckIn> aircraftXCheckIns = aircraftXCheckInManager.fetchAllAcDetails();
 			this.buildAcBasedOnProority(aircraftXCheckIns);
 		}

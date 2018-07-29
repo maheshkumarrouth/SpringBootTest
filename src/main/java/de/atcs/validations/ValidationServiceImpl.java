@@ -22,7 +22,11 @@ public class ValidationServiceImpl implements ValidationService{
 	public AircraftData fetchAllAcDetails(){
 		if(this.isSystemBooted())
 			return airTrafficControlManager.fetchAllAcDetails();
-		throw new AirTrafficControlException("System not yet started",HttpStatus.SERVICE_UNAVAILABLE);
+		throw new AirTrafficControlException("System not yet started. Please try Again.",HttpStatus.SERVICE_UNAVAILABLE);
+	}
+	
+	public AircraftData nextPlaneToBeDequeued() {
+		return airTrafficControlManager.nextPlaneToBeDequeued();
 	}
 	
 	public void bootTheApplication() {
@@ -30,7 +34,22 @@ public class ValidationServiceImpl implements ValidationService{
 	}
 	
 	public void enQueueAc(Aircraft aircraft) {
+		
+		if(!this.isSystemBooted())
+			throw new AirTrafficControlException("System not yet started. Please try Again.",HttpStatus.SERVICE_UNAVAILABLE);
+		
 		airTrafficControlManager.enQueueAc(aircraft);
+	}
+	
+	public void dequeueAC() {
+		
+		if(!this.isSystemBooted())
+			throw new AirTrafficControlException("System not yet started. Please try Again.",HttpStatus.SERVICE_UNAVAILABLE);
+		
+		if(airTrafficControlManager.isQueueEmpty())
+			throw new AirTrafficControlException("No Ac presented for dequeue",HttpStatus.OK);
+		
+		airTrafficControlManager.dequeueAC();
 	}
 	
 }

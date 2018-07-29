@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+ <appender name="file"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/www/logs/atcs.log</file>
+    <append>true</append>
+    <encoder>
+        <pattern>%date{ISO8601,Etc/UTC} %t %-5level %logger %msg%n
+        </pattern>
+    </encoder>
+    <rollingPolicy
+        class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>/www/logs/atcs%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+</appender>
+
+<root level="INFO">
+    <appender-ref ref="file" />
+</root>
+
+
+</configuration>

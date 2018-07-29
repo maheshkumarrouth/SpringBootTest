@@ -40,6 +40,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>AirTrafficControl</finalName>
 		<plugins>
 			<!-- Package as an executable jar/war -->
 			<plugin>
